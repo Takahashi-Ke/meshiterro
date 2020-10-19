@@ -17,19 +17,20 @@
                           </div>
                       </div>
 
-                      <form>
+                      <!--- 以下のフォームに入力された情報を、deviseのユーザ認証を行うコントローラ（session_rath）に渡す--->
+                      <%= form_with model: @user, url: session_path(resourse_name), local: true do |f| %>
                         <div class="form-group has-icon">
                           <label class="control-label sr-only" for="inputEmail">Email</label>
-                          <input type="text" class="form-control" id="inputEmail" placeholder="メールアドレス">
+                          <%= f.email_field :email, autofocus: true, class:"form-control", id:"inputEmail", placeholder:"メールアドレス" %>
                           <span class="fa fa-user form-control-icon" aria-hidden="true"></span>
                         </div>
                         <div class="form-group has-icon">
                           <label class="control-label sr-only" for="inputPassword">Password</label>
-                          <input type="password" class="form-control" id="inputPassword" placeholder="パスワード">
+                          <%= f.password_field :password, autocomplete: "off", class:"form_control", id:"inputPassword", placeholder:"パスワード" %>
                           <span class="fa fa-lock form-control-icon" aria-hidden="true"></span>
                         </div>
-                        <button type="submit" class="btn btn-lg btn-block btn-base-1 mt-20">サインイン</button>
-                      </form>
+                        <%= f.submit "サインイン", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
+                      <% end %>
                     </div>
                 </div>
             </div>
