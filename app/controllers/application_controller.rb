@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  before_action :authenticate_user!
+  #ログイン認証されていなければログイン画面にリダイレクトされる
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected

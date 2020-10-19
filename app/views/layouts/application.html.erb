@@ -10,7 +10,7 @@
     <title>Meshiterro</title>
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,600,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-  </head> 
+  </head>
 
   <body>
 
@@ -21,7 +21,7 @@
             <a class="navbar-logo" href="/">
               <%= image_tag('logo.png') %>
             </a>
-   
+
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
               <span class="sr-only">Toggle navigation</span>
               <span class="icon-bar"></span>
@@ -31,22 +31,31 @@
           </div>
           <div id="slidemenu">
             <ul class="nav navbar-nav navbar-right" data-hover="dropdown" data-animations="zoomIn fadeIn fadeInUp fadeIn">
-	      	  	<li class="">
-                <a href="">
-                  <span>新規登録</span>
-                </a>
-              </li>
-              <li class="">
-                <a href="">
-                  <span>ログイン</span>
-                </a>
-              </li>
+	      	  	<% if user_signed_in? %>
+	      	  	<!-- devise側で用意しているヘルパー -->
+  	      	  	<li class="">
+  	      	  	  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                </li>
+                <li class="">
+                   <%= link_to "投稿フォーム", new_post_image_path %>
+                </li>
+                <li class="">
+                  <%= link_to "マイページ", "#" %>
+                </li>
+              <% else %>
+                <li class="">
+                  <%= link_to "新規登録", new_user_registration_path %>
+                </li>
+                <li class="">
+                  <%= link_to "ログイン", new_user_session_path %>
+                </li>
+              <% end %>
             </ul>
           </div>
         </div>
       </nav>
     </div>
-  
+
     <%= yield %>
 
    <footer class="footer style-2">
@@ -60,7 +69,7 @@
               善良な市民同士で無差別に食欲を煽るSNS
           </p>
               <%= image_tag('logo-white.png') %>
-              
+
             </div>
           </div>
           <div class="col-md-2">
@@ -79,6 +88,6 @@
         </div>
       </div>
     </footer>
-    
+
   </body>
 </html>

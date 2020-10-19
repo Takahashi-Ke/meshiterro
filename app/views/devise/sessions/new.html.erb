@@ -18,7 +18,7 @@
                       </div>
 
                       <!--- 以下のフォームに入力された情報を、deviseのユーザ認証を行うコントローラ（session_rath）に渡す--->
-                      <%= form_with model: @user, url: session_path(resourse_name), local: true do |f| %>
+                      <%= form_with model: @user, url: session_path(resource_name), local: true do |f| %>
                         <div class="form-group has-icon">
                           <label class="control-label sr-only" for="inputEmail">Email</label>
                           <%= f.email_field :email, autofocus: true, class:"form-control", id:"inputEmail", placeholder:"メールアドレス" %>
@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group has-icon">
                           <label class="control-label sr-only" for="inputPassword">Password</label>
-                          <%= f.password_field :password, autocomplete: "off", class:"form_control", id:"inputPassword", placeholder:"パスワード" %>
+                          <%= f.password_field :password, autocomplete: "off", class:"form-control", id:"inputPassword", placeholder:"パスワード" %>
                           <span class="fa fa-lock form-control-icon" aria-hidden="true"></span>
                         </div>
                         <%= f.submit "サインイン", class:"btn btn-lg btn-block btn-base-1 mt-20" %>
