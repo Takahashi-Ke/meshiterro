@@ -5,4 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :post_images, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
+  #1対Nの関係において、「１」のデータが削除された場合
+  #「N」のデータも一緒に削除される
 end
