@@ -9,4 +9,7 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   #1対Nの関係において、「１」のデータが削除された場合
   #「N」のデータも一緒に削除される
+
+  attachment :profile_image
+
 end
