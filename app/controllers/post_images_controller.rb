@@ -12,7 +12,9 @@ class PostImagesController < ApplicationController
   end
 
   def index
-    @post_images = PostImage.all
+    @post_images = PostImage.page(params[:page]).reverse_order
+    #reverse_orderメソッドで投稿された順番を逆にする
+    #新しい投稿から表示
   end
 
   def show
