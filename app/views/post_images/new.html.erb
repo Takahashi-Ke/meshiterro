@@ -13,7 +13,7 @@
 
 
             <%= form_with model: @post_image, local: true do |f| %>
-              <% if @post_image.errors.any? %>
+              <% if @post_image.errors.any? %>Ω
                 <div class="error_explanation">
                   <h2><%= @post_image.errors.count %>件のエラーが発生しました</h2>
                   <ul>
